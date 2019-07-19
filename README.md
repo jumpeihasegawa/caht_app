@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 初回起動時
 
-Things you may want to cover:
+* コンテナを起動する
+$ docker-compose up -d
 
-* Ruby version
+* データベースを作成する
+$ docker-compose run web rake db:create
 
-* System dependencies
+# APIへのアクセス
 
-* Configuration
+http://localhost:3000
 
-* Database creation
+# DBへのアクセス
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+host     : localhost
+port     : 8000
+Database : myapp_development
+user     : postgres
+password : postgres
