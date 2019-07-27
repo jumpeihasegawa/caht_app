@@ -5,13 +5,28 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     ports:
-      - "8000:5432"
+      - "50000:5432"
+    environment:
+      POSTGRES_DB: chat_app_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  db_test:
+    image: postgres:12
+    volumes:
+      - ./tmp/db_test:/var/lib/postgresql/data
+    ports:
+      - "50001:5432"
+    environment:
+      POSTGRES_DB: chat_app_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
-      - "3000:3000"
+      - "50003:3000"
     depends_on:
       - db
+      - db_test

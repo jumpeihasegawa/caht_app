@@ -5,17 +5,22 @@
 * コンテナを起動する
 $ docker-compose up -d
 
-* データベースを作成する
-$ docker-compose run web rake db:create
-
 # APIへのアクセス
 
-http://localhost:3000
+http://localhost:50003
 
 # DBへのアクセス
 
+* 開発環境DB
 host     : localhost
-port     : 8000
-Database : myapp_development
+port     : 50001
+database : myapp_development
+user     : postgres
+password : postgres
+
+* テスト環境DB
+host     : localhost
+port     : 50002
+database : myapp_test
 user     : postgres
 password : postgres
