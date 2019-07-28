@@ -1,16 +1,16 @@
 # README
 
-# 初回起動時
-
+# 開発環境起動
 * コンテナを起動する
 $ docker-compose up -d
 
-# APIへのアクセス
+# viewへのアクセス
+http://localhost:50004
 
+# APIへのアクセス
 http://localhost:50003
 
 # DBへのアクセス
-
 * 開発環境DB
 host     : localhost
 port     : 50001
