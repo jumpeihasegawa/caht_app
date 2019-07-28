@@ -20,7 +20,7 @@ services:
       POSTGRES_DB: chat_app_test
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-  web:
+  api:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -30,3 +30,10 @@ services:
     depends_on:
       - db
       - db_test
+  view:
+    build: ./vuejs
+    command: yarn run serve
+    volumes:
+      - ./vuejs:/myapp
+    ports:
+      - "50004:8080"
