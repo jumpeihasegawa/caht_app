@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:12
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./db:/var/lib/postgresql/data
     ports:
       - "50000:5432"
     environment:
@@ -13,7 +13,7 @@ services:
   db_test:
     image: postgres:12
     volumes:
-      - ./tmp/db_test:/var/lib/postgresql/data
+      - ./db_test:/var/lib/postgresql/data
     ports:
       - "50001:5432"
     environment:
