@@ -1,2 +1,0 @@
-class Tark < ApplicationRecord
-end
