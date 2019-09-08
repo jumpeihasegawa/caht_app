@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
   db_test:
-    image: postgres:12
+    image: postgres:11
     volumes:
       - ./db_test:/var/lib/postgresql/data
     ports:
