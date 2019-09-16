@@ -1,4 +1,7 @@
 class LoginsController < ApplicationController
-    def login(login_id, password)
+    def login
+        user = User.find_user('login', 'pass')
+
+        render json: user
     end
 end
