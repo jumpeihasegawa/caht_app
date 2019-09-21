@@ -4,6 +4,6 @@ class Factories::UserFactory
     end
 
     def make_user()
-        return Domains::User.new(@user.login_id, @user.password)
+        return Domains::User.new(@user.login_id)
     end
 end
