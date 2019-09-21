@@ -10,6 +10,7 @@ services:
       POSTGRES_DB: chat_app_development
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      TZ: Asia/Tokyo
   db_test:
     image: postgres:12
     volumes:
@@ -20,6 +21,7 @@ services:
       POSTGRES_DB: chat_app_test
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      TZ: Asia/Tokyo
   api:
     build: ./rails
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -27,6 +29,8 @@ services:
       - ./rails:/myapp
     ports:
       - "50003:3000"
+    environment:
+      TZ: Asia/Tokyo
     depends_on:
       - db
       - db_test
@@ -38,3 +42,5 @@ services:
       - /myapp/node_modules # コンテナ内のnode_nodulesがマウントで削除されないようにする
     ports:
       - "50004:8080"
+    environment:
+      TZ: Asia/Tokyo
