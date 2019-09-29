@@ -1,10 +1,18 @@
 class MessagesController < ApplicationController
-    def find_messages(talk_room_id)
+    def find_messages
     end
 
-    def create_message(message)
+    def create_message
+        is_create = Message.create_message(
+            params[:users_id],
+            params[:talk_rooms_id],
+            params[:text],
+            params[:image]
+        )
+
+        render json: is_create
     end
 
-    def delete_message(message_id)
+    def delete_message
     end
 end
