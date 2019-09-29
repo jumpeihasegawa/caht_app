@@ -6,5 +6,8 @@ class TalkRoomsController < ApplicationController
     end
 
     def find_room_names
+        room_names = TalkRoom.find_room_names()
+
+        render json: room_names
     end
 end
