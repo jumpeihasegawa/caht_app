@@ -1,4 +1,11 @@
 class Message < ApplicationRecord
+    def self.find_messages(talk_rooms_id)
+        messages = self.where(talk_rooms_id: talk_rooms_id).order('id ASC')
+        messageFactory = Factories::MessageFactory.new(messages)
+
+        return messageFactory.make_messages()
+    end
+
     def self.create_message(users_id, talk_rooms_id, text, image)
         begin
             self.create!(

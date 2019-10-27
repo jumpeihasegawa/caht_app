@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
     def find_messages
+        messages = Message.find_messages(params[:talk_rooms_id])
+
+        render json: messages
     end
 
     def create_message

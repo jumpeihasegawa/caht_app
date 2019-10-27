@@ -1,4 +1,9 @@
 class Factories::MessageFactory
-    def make_messages(messages)
+    def initialize(messages)
+        @messages = messages
+    end
+
+    def make_messages()
+        return Domains::Messages.new(@messages)
     end
 end
