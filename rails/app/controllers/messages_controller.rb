@@ -17,5 +17,8 @@ class MessagesController < ApplicationController
     end
 
     def delete_message
+        is_delete = Message.delete_message(params[:messages_id])
+
+        render json: is_delete
     end
 end

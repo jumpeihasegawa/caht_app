@@ -14,8 +14,20 @@ class Message < ApplicationRecord
                 text:          text,
                 image:         image
             )
+
             return true
         rescue
+            return false
+        end
+    end
+
+    def self.delete_message(messages_id)
+        begin
+            message = self.find_by!(id: messages_id)
+            message.destroy!
+
+            return true
+        rescue 
             return false
         end
     end
