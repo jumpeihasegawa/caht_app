@@ -10,8 +10,8 @@ class TalkRoom < ApplicationRecord
 
     def self.find_room_names
         room_names = self.all().order('created_at DESC')
-        talk_room_factory = Factories::TalkRoomFactory.new(room_names)
+        talkRoomFactory = Factories::TalkRoomFactory.new(room_names)
 
-        return talk_room_factory.make_room_names()
+        return talkRoomFactory.make_room_names()
     end
 end
